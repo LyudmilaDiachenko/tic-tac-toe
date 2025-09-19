@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+.grid{
+  width: 610px;
+}
+.row{
+  width: 100%;
+  float: left;
+}
+.cell{
+  border: 1px solid grey;
+  width: 200px;
+  height: 200px;
+  float: left;
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center;  
+}
+.cell.cell-x{
+  background-image: url('x.svg');
+}
+.cell.cell-o{
+  background-image: url('o.svg');
+}
