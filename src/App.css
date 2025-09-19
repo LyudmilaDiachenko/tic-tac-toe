@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #d0d8dd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,20 +37,32 @@
   }
 }
 .grid{
-  width: 610px;
+  width: 650px;
 }
 .row{
   width: 100%;
   float: left;
 }
 .cell{
-  border: 1px solid grey;
+  border: 5px solid black;
   width: 200px;
   height: 200px;
   float: left;
   background-size: cover;
   background-repeat: no-repeat; 
   background-position: center;  
+}
+.row:nth-child(1) .cell{
+  border-top: none;
+}
+.row:nth-child(3) .cell{
+  border-bottom: none;
+}
+.row .cell:nth-child(1){
+  border-left: none;
+}
+.row .cell:nth-child(3){
+  border-right: none;
 }
 .cell.cell-x{
   background-image: url('x.svg');

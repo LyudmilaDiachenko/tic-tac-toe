@@ -38,11 +38,11 @@ function Grid(props) {
             className={"grid " + classes[props.win]}
         >
             {grid.map(
-                (row, rowNum) => <div key={rowNum} className="row">
+                (row, rowNum) => <div key={'row-'+rowNum} className="row">
                     {row.map(
                         (col, colNum) =>
                             <Cell 
-                                key={colNum} 
+                                key={'col-'+colNum} 
                                 value={col} 
                                 onClick={
                                     () => onClick(rowNum, colNum) //чий хід
