@@ -12,9 +12,7 @@ const classes = {
     win_d2: 'win-d2',
 }
 
-function Grid() {
-    const [win, setWin] = useState(false)
-    const [turn, setTurn] = useState('x')
+function Grid(props) {
     const [grid, setGrid] = useState(
         [
             ['','',''], 
@@ -24,18 +22,20 @@ function Grid() {
     )
 
     function onClick(row, col){
-        console.log(row, col, turn)
-        
-        let newGrid = [...grid]
-        newGrid[row][col] = turn
-        setGrid(newGrid)
+        if (!grid[row][col]){
+            let newGrid = [...grid]
+            newGrid[row][col] = props.turn
+            setGrid(newGrid)
 
-        setTurn(turn == 'x' ? 'o' : 'x')
+            props.setTurn(props.turn == 'x' ? 'o' : 'x')
+        } else {
+            props.showError()
+        }
     }
 
     return (
         <div
-            className={"grid " + classes[win]}
+            className={"grid " + classes[props.win]}
         >
             {grid.map(
                 (row, rowNum) => <div key={rowNum} className="row">

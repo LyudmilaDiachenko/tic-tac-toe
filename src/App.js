@@ -1,14 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from "react";
 import Grid from './grid'
+import Error from './error'
 
 function App() {
+  const [win, setWin] = useState(false)
+  const [error, setError] = useState(false)
+  const [turn, setTurn] = useState('x')
+
+  function showError() {
+      setError(true)
+      setTimeout(() => setError(false), 1000);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         
-        <Grid />
-      
+        <Grid {...{win, setWin, turn, setTurn, showError}} />
+        <Error error={error} />
+
+
       </header>
     </div>
   );
