@@ -1,18 +1,7 @@
 import React, { useState } from "react";
 import Cell from './cell'
 
-const classes = {
-    win_h1: 'win-h1',
-    win_h2: 'win-h2',
-    win_h3: 'win-h3',
-    win_v1: 'win-v1',
-    win_v2: 'win-v2',
-    win_v3: 'win-v3',
-    win_d1: 'win-d1',
-    win_d2: 'win-d2',
-}
-
-function Grid(props) {
+function Grid({turn,setTurn, win, setWin, showError}) {
     const [grid, setGrid] = useState(
         [
             ['','',''], 
@@ -22,21 +11,45 @@ function Grid(props) {
     )
 
     function onClick(row, col){
-        if (!grid[row][col]){
+        if (!grid[row][col] && !win){
             let newGrid = [...grid]
-            newGrid[row][col] = props.turn
+            newGrid[row][col] = turn
             setGrid(newGrid)
-
-            props.setTurn(props.turn == 'x' ? 'o' : 'x')
+            validateWin(newGrid)
         } else {
-            props.showError()
+            showError()
+        }
+    }
+
+    function validateWin(newGrid){
+        if (newGrid[0][0] && newGrid[0][0] === newGrid[0][1] && newGrid[0][1] === newGrid[0][2]){
+            setWin('win_h1')
+        } else if (newGrid[1][0] && newGrid[1][0] === newGrid[1][1] && newGrid[1][1] === newGrid[1][2]){
+            setWin('win_h2')
+        } else if (newGrid[2][0] && newGrid[2][0] === newGrid[2][1] && newGrid[2][1] === newGrid[2][2]){
+            setWin('win_h3')
+        } else if (newGrid[0][0] && newGrid[0][0] === newGrid[1][0] && newGrid[1][0] === newGrid[2][0]){
+            setWin('win_v1')
+        } else if (newGrid[0][1] && newGrid[0][1] === newGrid[1][1] && newGrid[1][1] === newGrid[2][1]){
+            setWin('win_v2')
+        } else if (newGrid[0][2] && newGrid[0][2] === newGrid[1][2] && newGrid[1][2] === newGrid[2][2]){
+            setWin('win_v3')
+        } else if (newGrid[0][0] && newGrid[0][0] === newGrid[1][1] && newGrid[1][1] === newGrid[2][2]){
+            setWin('win_d1')
+        } else if (newGrid[0][2] && newGrid[0][2] === newGrid[1][1] && newGrid[1][1] === newGrid[2][0]){
+            setWin('win_d2')
+        } else if (
+            newGrid[0][0] && newGrid[0][1] && newGrid[0][2] && 
+            newGrid[1][0] && newGrid[1][1] && newGrid[1][2] && 
+            newGrid[2][0] && newGrid[2][1] && newGrid[2][2]){
+            setWin("draw")
+        } else {
+            setTurn(turn === 'x' ? 'o' : 'x')
         }
     }
 
     return (
-        <div
-            className={"grid " + classes[props.win]}
-        >
+        <div className={"grid " + win}>
             {grid.map(
                 (row, rowNum) => <div key={'row-'+rowNum} className="row">
                     {row.map(
@@ -45,13 +58,12 @@ function Grid(props) {
                                 key={'col-'+colNum} 
                                 value={col} 
                                 onClick={
-                                    () => onClick(rowNum, colNum) //чий хід
+                                    () => onClick(rowNum, colNum)
                                 }
                             />
                     )}
                 </div>
             )}
-        
         </div>
     );
 }
