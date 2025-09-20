@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import Cell from './cell'
 
-function Grid({turn,setTurn, win, setWin, showError}) {
-    const [grid, setGrid] = useState(
-        [
-            ['','',''], 
-            ['','',''], 
-            ['','',''], 
-        ]
-    )
-
+function Grid({turn,setTurn, win, setWin, showError, grid, setGrid}) {
     function onClick(row, col){
         if (!grid[row][col] && !win){
             let newGrid = [...grid]
