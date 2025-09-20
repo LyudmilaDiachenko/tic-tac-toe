@@ -9,6 +9,7 @@ function App() {
   const [win, setWin] = useState(false)
   const [error, setError] = useState(false)
   const [turn, setTurn] = useState('x')
+  const [log, setLog] = useState([])
   const [grid, setGrid] = useState(
         [
             ['','',''], 
@@ -40,8 +41,8 @@ function App() {
       <div className="App-header">
 
         <Header {...{turn, win, error}}/>
-        <Grid {...{grid, setGrid, win, setWin, turn, setTurn, showError}} />
-        <Controls {...{reset}} />
+        <Grid {...{grid, setGrid, win, setWin, turn, setTurn, showError, log, setLog}} />
+        <Controls {...{reset, log, setLog}} />        
         <Error error={error} />
           
       </div>
