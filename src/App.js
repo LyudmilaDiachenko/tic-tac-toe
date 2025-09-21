@@ -10,6 +10,7 @@ function App() {
   const [error, setError] = useState(false)
   const [turn, setTurn] = useState('x')
   const [log, setLog] = useState([])
+  const [aiPlayer, setAIPlayer] = useState('o')
   const [grid, setGrid] = useState(
         [
             ['','',''], 
@@ -19,17 +20,16 @@ function App() {
   )
 
   function reset(){
-      setWin(false)
-      setTurn('x')
-      setGrid(
-          [
-              ['','',''], 
-              ['','',''], 
-              ['','',''], 
-          ]
-      )
+    setGrid(
+      [
+        ['','',''], 
+        ['','',''], 
+        ['','',''], 
+      ]
+    )
+    setWin(false)
+    setTurn('x')
   }
-
 
   function showError() {
       setError(true)
@@ -41,7 +41,7 @@ function App() {
       <div className="App-header">
 
         <Header {...{turn, win, error}}/>
-        <Grid {...{grid, setGrid, win, setWin, turn, setTurn, showError, log, setLog}} />
+        <Grid {...{grid, setGrid, win, setWin, turn, setTurn, showError, log, setLog, aiPlayer}} />
         <Controls {...{reset, log, setLog}} />        
         <Error error={error} />
           
