@@ -13,10 +13,10 @@ function Controls({reset, log, setLog}) {
           </tr>
         </thead>
         <tbody>
-          {log.map(e=>
-            <tr>
-              <td>{e=='x'?'✓':'-'}</td>
-              <td>{e=='o'?'✓':'-'}</td>
+          {log.map((e, i)=>
+            <tr key={'log-'+i}>
+              <td>{e==='x'?'✓':'-'}</td>
+              <td>{e==='o'?'✓':'-'}</td>
             </tr>
           )}
         </tbody>
