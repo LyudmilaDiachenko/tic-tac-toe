@@ -31,13 +31,14 @@ function Controls({reset, log, setLog}) {
           </tr>
         </tfoot>
       </table>
-      
+      <div className="btn-box">
         <button onClick={()=>setLog([])}>
           Скинути статистику
         </button>    
         <button onClick={reset}>
             Почати заново
-        </button>        
+        </button>  
+      </div>
     </div>
   );
 }

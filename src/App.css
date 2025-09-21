@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #2c3e50;
 }
 .App-link {
   color: #61dafb;
@@ -128,6 +128,8 @@
 }
 .aside {
   position: absolute;
+  display: flex;
+  flex-direction: column;
 }
 .aside-right{
   right: 5%;
@@ -138,4 +140,26 @@ table{
 }
 th, td{
   border: 1px solid  black;
+  padding: 5px 20px;
+  width: 50%;
+}
+.btn-box{
+  display: flex;
+  margin-top: 5px;
+  text-align: center;
+  justify-content: center;
+}
+caption{
+  margin-bottom: 5px;
+}
+button{
+  color: #1a5276;
+  width: 49%;
+  padding: 10px 25px;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+button:nth-child(1){
+  margin-right: 2%;
+  padding: 10px 10px 10px 10px;
 }
