@@ -47,7 +47,7 @@ code {
   width: 630px;
   height: 630px;
   content: '';
-  background-image: url('./svg/i.svg');
+  background-image: url('./media/i.svg');
   background-size: cover;
   background-repeat: no-repeat; 
   background-position: center; 
@@ -84,7 +84,7 @@ code {
   width: 630px;
   height: 630px;
   content: '';
-  background-image: url('./svg/i.svg');
+  background-image: url('./media/i.svg');
   background-size: cover;
   background-repeat: no-repeat; 
   background-position: center; 
@@ -116,10 +116,10 @@ code {
   border-right: none;
 }
 .cell.cell-x{
-  background-image: url('./svg/x.svg');
+  background-image: url('./media/x.svg');
 }
 .cell.cell-o{
-  background-image: url('./svg/o.svg');
+  background-image: url('./media/o.svg');
 }
 .error-box{
   position: absolute;

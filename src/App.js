@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Grid from './components/grid'
-import Error from './components/error'
-import Header from './components/header';
-import Controls from './components/controls'
-import AIBox from './components/aiBox';
+import Grid from './js/grid'
+import Error from './js/error'
+import Header from './js/header';
+import Controls from './js/controls'
+import AIBox from './js/aiBox';
 
 function App() {
   const [win, setWin] = useState(false)
