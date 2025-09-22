@@ -3,21 +3,22 @@ import Cell from './cell'
 
 function Grid({turn, setTurn, win, setWin, showError, grid, setGrid, log, setLog, aiPlayer}) {
     function aiTurn(){
-        let rowNum, colNum;
+        if (win) return;
+        let allowedTurns = [];
         if (aiPlayer === turn || aiPlayer === 'b') {
             grid.forEach(
                 (row, rn) => {
                     row.forEach(
                         (col, cn) => {
                             if (!col){
-                                rowNum = rn
-                                colNum = cn
+                                allowedTurns.push([rn, cn])
                             }
                         }
                     )
                 }
             )
-            setTimeout(_=>onClick(rowNum, colNum), 1000)
+            allowedTurns.sort(_ => Math.random() > 0.5 ? 1 : -1)
+            setTimeout(_=>onClick(allowedTurns[0][0], allowedTurns[0][1]), 1000)
         }
 
     }
