@@ -167,3 +167,6 @@ button:nth-child(1){
   margin-right: 2%;
   padding: 10px 10px 10px 10px;
 }
+.aside-left label{
+  display: flex;
+}
