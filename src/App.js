@@ -4,6 +4,7 @@ import Grid from './grid'
 import Error from './error'
 import Header from './header';
 import Controls from './controls'
+import AIBox from './aiBox';
 
 function App() {
   const [win, setWin] = useState(false)
@@ -41,6 +42,9 @@ function App() {
       <div className="App-header">
 
         <Header {...{turn, win, error}}/>
+
+        <AIBox {...{aiPlayer, setAIPlayer}}/>
+
         <Grid {...{grid, setGrid, win, setWin, turn, setTurn, showError, log, setLog, aiPlayer}} />
         <Controls {...{reset, log, setLog}} />        
         <Error error={error} />

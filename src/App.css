@@ -134,6 +134,10 @@
 .aside-right{
   right: 5%;
 }
+.aside-left{
+  left: 5%;
+  text-align: left;
+}
 table{
   width: 100%;
   border-collapse: collapse;
