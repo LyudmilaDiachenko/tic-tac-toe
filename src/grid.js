@@ -4,7 +4,7 @@ import Cell from './cell'
 function Grid({turn, setTurn, win, setWin, showError, grid, setGrid, log, setLog, aiPlayer}) {
     function aiTurn(){
         let rowNum, colNum;
-        if (aiPlayer === turn) {
+        if (aiPlayer === turn || aiPlayer === 'b') {
             grid.forEach(
                 (row, rn) => {
                     row.forEach(
@@ -17,7 +17,7 @@ function Grid({turn, setTurn, win, setWin, showError, grid, setGrid, log, setLog
                     )
                 }
             )
-            onClick(rowNum, colNum)
+            setTimeout(_=>onClick(rowNum, colNum), 1000)
         }
 
     }

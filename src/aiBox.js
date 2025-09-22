@@ -12,7 +12,11 @@ function AIBox({aiPlayer, setAIPlayer}) {
             AI грає за o
         </label>
         <label>
-            <input type="checkbox" checked={aiPlayer!=='x' && aiPlayer!=='o'} onChange={_=>setAIPlayer('')} />
+            <input type="checkbox" checked={aiPlayer==='b'} onChange={_=>setAIPlayer('b')} />
+            AI розважається
+        </label>
+        <label>
+            <input type="checkbox" checked={aiPlayer!=='x' && aiPlayer!=='o' && aiPlayer!=='b'} onChange={_=>setAIPlayer('')} />
             AI відпочиває
         </label>
     </div>
