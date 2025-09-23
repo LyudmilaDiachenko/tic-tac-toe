@@ -1,10 +1,12 @@
 # Getting Started
 
-## See on git pages
+
+
+## See on GitHub Pages
 
 [tic-tac-toe](https://lyudmiladiachenko.github.io/tic-tac-toe/build/)
 
-## Local run
+## Run local
 
 `npm start`
 

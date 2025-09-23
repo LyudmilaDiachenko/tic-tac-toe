@@ -80,6 +80,8 @@ function Grid({turn, setTurn, win, setWin, showError, grid, setGrid, log, setLog
                     {row.map(
                         (col, colNum) =>
                             <Cell 
+                                turn={turn}
+                                aiPlayer={aiPlayer}
                                 key={'col-'+colNum} 
                                 value={col} 
                                 onClick={

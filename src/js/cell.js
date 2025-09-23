@@ -5,11 +5,12 @@ const classes = {
     o: 'cell-o',
 }
 
-function Cell({value, onClick}) {
+function Cell({value, onClick, aiPlayer, turn}) {
   return (
     <div
         className={'cell ' + classes[value]}
-        onClick={onClick}
+
+        onClick={(aiPlayer === turn || aiPlayer === 'b')?null:onClick}
     >
       
     </div>
